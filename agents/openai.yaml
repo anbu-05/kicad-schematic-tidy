@@ -1,0 +1,3 @@
+interface:
+  display_name: "KiCad Schematic Tidy"
+  short_description: "Tidy existing schematics with six verified rules"

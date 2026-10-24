@@ -1,0 +1,39 @@
+# Approved presentation examples
+
+These examples were developed through user review on a copied PDB project. The named parts explain the examples; they are not part-selection recommendations or mandatory templates for unrelated circuits. Read the relevant images with a local image viewer when comparing layouts.
+
+## Compact input/enable/bypass group — rules 1, 2 and 5
+
+![User-edited preferred input group](images/compact-input.png)
+
+The user replaced a far-left C303 and a large ground-return loop with a capacitor beside/below U301's VIN and EN pins. One nearby vertical rail serves both pins, with GND immediately below the capacitor. Move the support circuit and reshape its wires rather than preserve the old route.
+
+Measured saved example: VIN and EN endpoints each have a 100 mil horizontal lead to the rail. The EN junction to C303's upper pin and C303's lower pin to the GND anchor are also 100 mil. Measure from electrical pin endpoints, not the symbol outline.
+
+## Comfortable passive branch spacing — rules 3 and 4
+
+![Accepted relaxed passive spacing](images/passive-branches-300mil.png)
+
+The user rejected 600 mil between comparable resistor/capacitor branches as unnecessarily wide, then rejected the closest non-overlapping 150/200 mil arrangements as too tight. The accepted revision uses 300 mil between the R401/C402, R403/C405 and C408/C409 centre columns. Fields move to outer free space rather than occupying the narrow gap. The user explicitly accepted this relaxed result.
+
+Use this breathing room for comparable ordinary parallel passive branches. Preserve pin-lead lengths while adjusting the shared rail span. Actual symbol geometry can require a larger pitch; minimum non-overlap alone is not the desired result.
+
+## Long USB CC detours — rule 5
+
+The user accepted replacing two long CC1/CC2 wires that wrapped around the connector/protection circuit with separate matching local net labels. Treat the connector and CC pull-downs as a local group and protection as another. Keep each interface's short pin stubs, then compact each group independently.
+
+In this example the previously unnamed nets became USB_CC1 and USB_CC2. A rename changes the native net text without authorising a different set of connected pins. Verify those complete pin sets independently of names. The accepted principle is grouping and label separation; exact coordinates from the PDB trial are not portable editor instructions.
+
+## Missing junctions despite visual contact — rule 6
+
+![Faulty touching stubs](images/junction-missing.png)
+
+![User-corrected junction dots](images/junction-corrected.png)
+
+In the faulty C503 example the capacitor branch endpoints touch the middle of the resistor/sense wires, but no dots exist. Native KiCad output puts the capacitor pins on separate unconnected nets. The corrected example includes dots at both branch contacts. Require the drawn dots and native net agreement; a before/after comparison that preserves an existing fault does not pass the junction check.
+
+These images demonstrate the intended connection. They do not authorise repairing unrelated existing circuits during a presentation-only task.
+
+## Dimensions that remain example-specific
+
+The opposing MOSFET bank uses a 1250 mil repeat pitch and a 200 mil origin offset to align its rotated source/drain terminals. Those are properties of that arrangement, not additional general spacing rules. No fixed universal text clearance or permission to hide repeated values follows from the examples.
