@@ -1,5 +1,9 @@
 # Native verification and the junction checker
 
+## Step 0 completion
+
+When symbol compaction is authorised, verify both the local-library change and its placed-instance update before Step 1. Check pin semantics, original pin-to-wire/label/NC identity, cached-library consistency and rendered support circuits in addition to the native comparisons below. A library preview alone does not complete Step 0. Read [the symbol-compaction reference](symbol-compaction.md#placed-instance-completion-and-verification) for the specific checks and accepted examples. Normalise coordinate-dependent native unit-pin element order and insignificant XML whitespace only; preserve exact pin membership and component metadata.
+
 ## Baseline and candidate evidence
 
 Use the actual root schematic so repeated sheets retain their instance references. Capture native component XML, complete net pin memberships and ERC before and after the layout pass. Preserve source hashes and recovery files. Compare component records and pin partitions rather than net counts alone. When deliberately renaming an unnamed net, require the same exact membership and report the rename separately.

@@ -44,6 +44,10 @@ Each box fits the visible circuit content with at least 300 mil clearance. Right
 
 The override example preserved all 55 connected physical pin-lead lengths: 52 at 100 mil, three existing 200 mil exceptions at the regulator OUT and selector VIN2 routes. Whole-project native component records and complete named pin partitions were identical before/after. This sheet had no ERC or junction findings; pre-existing faults on other sheets remained reported. Exact group widths, particular parts and the number of boxes per row belong to this example, not the general rules.
 
+## Step 0: symbol compaction
+
+Read [the accepted U303/U301 symbol comparisons, additional TCAN test and placed-instance completion evidence](symbol-compaction.md) when the entry scan finds a candidate. U303 and U301 illustrate avoidable oversized or uneven geometry; U302 and U304 illustrate reasonable peers to leave unchanged. The subsequent U1402 test covers the complete Steps 0–2 sequence through an updated placed instance and verified A4 sheet. This is a conditional step before connection tidying and sheet organisation, with permission and exception handling before symbol mutations.
+
 ## Dimensions that remain example-specific
 
 The opposing MOSFET bank uses a 1250 mil repeat pitch and a 200 mil origin offset to align its rotated source/drain terminals. Those are properties of that arrangement, not additional general spacing rules. No fixed universal text clearance or permission to hide repeated values follows from the examples.
