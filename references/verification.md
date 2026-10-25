@@ -8,6 +8,18 @@ Keep existing errors, warnings, excluded findings and ignored check categories v
 
 Measure transformed electrical pin endpoints on the actual symbol units, not just symbol origins. Check the 50 mil grid and orthogonal wires. Record each lead longer than 100 mil with its actual nearby blocker and the smallest workable increment. Render the sheet and close-ups; native ERC does not catch all text/wire/body collisions or establish the intended visual compactness.
 
+## Sheet-organisation measurements
+
+Read the actual drawing-sheet border and title-block extents from the native drawing or a fresh export. Do not assume that the physical A4 page edge or a hardcoded border inset is the reference. Check A4 unless the user explicitly requested a larger page.
+
+Measure each group's visible bounds, including symbol/pin strokes, visible fields, wires, labels and power symbols. Native plotted glyph geometry avoids guessing text width from character count. Exclude hidden properties, box headings and separate engineering notes from circuit bounds; inspect headings and notes separately for fit and collisions. Measure padding and box gaps to the blue box edge centrelines.
+
+Verify 300 mil minimum internal clearance on every edge. Where exact box packing conflicts with the absolute 50 mil electrical grid, retain only the smallest extra padding needed, less than 50 mil per edge, and report the measured allowance. Moving a group off-grid to make its padding exactly 300 mil is not an acceptable shortcut.
+
+Verify the first row starts 100 mil below the inner border and every row starts 100 mil to its right. Check exactly 200 mil horizontal gaps and top alignment within a row. Each following row starts 200 mil below the preceding row's tallest box. Right/bottom border and title-block clearance must remain at least 100 mil; unused page area need not be filled. Confirm reading order and whole-box fit when wrapping.
+
+For a rigid group move, compare every electrical object, symbol and attached field against the same grid-aligned translation. Recheck transformed pin endpoints, wire endpoints, lead lengths and native connectivity. A clean netlist/ERC or junction audit does not establish correct box measurements, text fit or visual layout.
+
 ## Run the read-only junction check
 
 Locate the scripts relative to this skill folder, not relative to the project being edited. Run:
